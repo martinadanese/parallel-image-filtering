@@ -1,0 +1,12 @@
+#!/bin/bash
+## OpenMP
+gcc -O1 blur.omp.c -lm -fopenmp -o blur.omp.x
+## run OpenMP with:
+## ./blur.omp.x [nths] [kernel-type] [kernel-size] {additional-kernel-param} [input-file] {output-file}
+
+
+## MPI
+mpicc -O1 blur.mpi.c -lm -o blur.mpi.x
+## on my laptop I run MPI with:
+## mpirun --use-hwthread-cpus -np [procs] ./blur.mpi.x [kernel-type] [kernel-size] {additional-kernel-param} [input-file] {output-file}
+## 
